@@ -5,13 +5,13 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="deepfake-gitract", # Replace with your own username
-    version="0.0.0",
-    author="TBA",
+    version="1.0.0",
+    author="Vajira Thambawita",
     author_email="vlbthambawita@gmail.com",
     description="Deepfake gastrointestinal tract image generator.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/vlbthambawita/deepfake-ecg",
+    url="https://github.com/vlbthambawita/deepfake-gitract",
     packages=setuptools.find_packages(),
     include_package_data=True,
     package_data={'deepfakeecg': ['checkpoints/g_stat.pt']},

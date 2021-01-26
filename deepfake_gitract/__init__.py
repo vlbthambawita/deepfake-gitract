@@ -1,0 +1,1 @@
+from deepfake_gitract.deepfake_gitract import generate
