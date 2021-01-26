@@ -165,6 +165,16 @@ def train_from_folder(
     
 
 def generate(name, result_dir, checkpoint_dir, num_img_per_tile, num_of_outputs, trunc_psi=0.75):
+    """ Generate deepfake Gastrointestinal tract images.
+
+    Keyword arguments:
+    name -- Any name to keep trac of generations
+    result_dir -- A directory to save output
+    checkpoint_dir -- A directory to download pre-trained checkpoints
+    num_img_per_tile -- Number of images per dimenstion of the grid
+    num_of_outputs -- Number of outputs to generate
+    trunc_psi -- value between 0.5 and 1.0 (default 0.75)
+    """
 
     # Download checkpoints
     download_checkpoints(checkpoint_dir, name)
@@ -175,12 +185,26 @@ def generate(name, result_dir, checkpoint_dir, num_img_per_tile, num_of_outputs,
                     generate=True, generate_interpolation=False, trunc_psi=trunc_psi)
 
 
-def generate_interpolation(name, result_dir, checkpoint_dir, num_img_per_tile, num_of_outputs, num_of_steps_to_interpolate, save_frames):
+def generate_interpolation(name, result_dir, checkpoint_dir, num_img_per_tile, num_of_outputs, num_of_steps_to_interpolate, save_frames, trunc_psi=0.75):
+    """ Generate deepfake Gastrointestinal tract images.
 
+    Keyword arguments:
+    name -- Any name to keep trac of generations
+    result_dir -- A directory to save output
+    checkpoint_dir -- A directory to download pre-trained checkpoints
+    num_img_per_tile -- Number of images per dimenstion of the grid
+    num_of_outputs -- Number of outputs to generate
+    num_of_steps_to_interpolate -- Number of step between two random points
+    save_frames -- True if you want frame by frame, otherwise .gif will be generated
+    trunc_psi -- value between 0.5 and 1.0 (default 0.75)
+    """
     # Download checkpoints
     download_checkpoints(checkpoint_dir, name)
 
     # Generate  data to folder
     train_from_folder(name=name, models_dir=checkpoint_dir, results_dir=result_dir, 
                     num_image_tiles=num_img_per_tile, num_generate=num_of_outputs,
-                    generate=False, generate_interpolation=True, interpolation_num_steps=num_of_steps_to_interpolate, save_frames=save_frames)
+                    generate=False, generate_interpolation=True, interpolation_num_steps=num_of_steps_to_interpolate, 
+                    save_frames=save_frames, trunc_psi=0.75)
+
+
