@@ -164,7 +164,7 @@ def train_from_folder(
 
     
 
-def generate(name, result_dir, checkpoint_dir, num_img_per_tile, num_of_outputs, trunc_psi=0.75):
+def generate(name, result_dir, checkpoint_dir, num_img_per_tile, num_of_outputs, trunc_psi=0.75, **kwargs):
     """ Generate deepfake Gastrointestinal tract images.
 
     Keyword arguments:
@@ -182,10 +182,10 @@ def generate(name, result_dir, checkpoint_dir, num_img_per_tile, num_of_outputs,
     # Generate  data to folder
     train_from_folder(name=name, models_dir=checkpoint_dir, results_dir=result_dir, 
                     num_image_tiles=num_img_per_tile, num_generate=num_of_outputs,
-                    generate=True, generate_interpolation=False, trunc_psi=trunc_psi)
+                    generate=True, generate_interpolation=False, trunc_psi=trunc_psi, **kwargs)
 
 
-def generate_interpolation(name, result_dir, checkpoint_dir, num_img_per_tile, num_of_outputs, num_of_steps_to_interpolate, save_frames, trunc_psi=0.75):
+def generate_interpolation(name, result_dir, checkpoint_dir, num_img_per_tile, num_of_outputs, num_of_steps_to_interpolate, save_frames, trunc_psi=0.75, **kwargs):
     """ Generate deepfake Gastrointestinal tract images.
 
     Keyword arguments:
@@ -205,6 +205,6 @@ def generate_interpolation(name, result_dir, checkpoint_dir, num_img_per_tile, n
     train_from_folder(name=name, models_dir=checkpoint_dir, results_dir=result_dir, 
                     num_image_tiles=num_img_per_tile, num_generate=num_of_outputs,
                     generate=False, generate_interpolation=True, interpolation_num_steps=num_of_steps_to_interpolate, 
-                    save_frames=save_frames, trunc_psi=0.75)
+                    save_frames=save_frames, trunc_psi=trunc_psi, **kwargs)
 
 
